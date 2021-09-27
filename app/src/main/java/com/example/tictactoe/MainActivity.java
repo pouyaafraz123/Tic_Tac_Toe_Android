@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void newMultiplayerGame() {
         Intent intent = new Intent(MainActivity.this,GameBoard.class);
+        intent.putExtra("mode",GameMode.MULTIPLAYER);
         startActivity(intent);
     }
 

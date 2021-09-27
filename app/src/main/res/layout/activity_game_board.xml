@@ -4,11 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="#000000"
     tools:context=".GameBoard">
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/imageView3"
+        android:visibility="gone"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="150dp"
@@ -16,147 +17,156 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/game" />
+        app:srcCompat="@drawable/game" />-->
 
-    <TextView
-        android:id="@+id/turn_view"
-        android:layout_width="0dp"
-        android:layout_height="84dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginRight="25dp"
-        android:gravity="center"
-        android:textAlignment="center"
-        android:textColor="#E040FB"
-        android:textSize="34sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/main_layout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="250dp"
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/linearLayoutCompat2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+            android:layout_height="0dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="50dp"
+            android:layout_weight="1">
 
-            <ImageView
-                android:id="@+id/imageView6"
-                android:layout_width="70dp"
-                android:layout_height="90dp"
-                android:layout_margin="20dp"
+            <TextView
+                android:id="@+id/turn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/first_player_turn"
+                android:textAlignment="center"
+                android:textColor="#E040FB"
+                android:padding="10dp"
+                android:textSize="34sp"
+                android:textStyle="bold|italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/player1_score"
+                android:layout_width="179dp"
+                android:layout_height="271dp"
                 android:layout_weight="1"
-                android:contentDescription="@string/img"
-                android:tag="0" />
+                android:gravity="center"
+                android:textAlignment="center"
+                android:padding="10dp"
+                android:textColor="#E040FB"
+                android:textSize="34sp"
+                android:textStyle="bold|italic"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/player2_score"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/turn" />
 
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="70dp"
-                android:layout_height="90dp"
-                android:layout_margin="20dp"
+            <TextView
+                android:id="@+id/player2_score"
+                android:layout_width="179dp"
+                android:layout_height="0dp"
                 android:layout_weight="1"
-                android:contentDescription="@string/img"
-                android:tag="1" />
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textColor="#E040FB"
+                android:textSize="34sp"
+                android:textStyle="bold|italic"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/player1_score"
+                app:layout_constraintTop_toBottomOf="@+id/turn" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="70dp"
-                android:layout_height="90dp"
-                android:layout_margin="20dp"
+        <TableLayout
+            android:id="@+id/main"
+            android:layout_width="360dp"
+            android:layout_height="360dp"
+            android:layout_gravity="center"
+            android:background="@drawable/game_board">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
                 android:layout_weight="1"
-                android:contentDescription="@string/img"
-                android:tag="2" />
-        </LinearLayout>
+                android:gravity="center"
+                android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+                <androidx.appcompat.widget.AppCompatImageView
+                    style="@style/ImageStyle"
+                    android:tag="0" />
 
-            <ImageView
-                android:id="@+id/imageView7"
-                android:layout_width="70dp"
-                android:layout_height="90dp"
-                android:layout_margin="20dp"
+                <androidx.appcompat.widget.AppCompatImageView
+                    style="@style/ImageStyle"
+                    android:tag="1" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    style="@style/ImageStyle"
+                    android:tag="2" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
                 android:layout_weight="1"
-                android:contentDescription="@string/img"
-                android:tag="3" />
+                android:gravity="center"
+                android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/imageView8"
-                android:layout_width="70dp"
-                android:layout_height="90dp"
-                android:layout_margin="20dp"
+                <androidx.appcompat.widget.AppCompatImageView
+                    style="@style/ImageStyle"
+                    android:tag="3" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    style="@style/ImageStyle"
+                    android:tag="4" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    style="@style/ImageStyle"
+                    android:tag="5" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
                 android:layout_weight="1"
-                android:contentDescription="@string/img"
-                android:tag="4" />
+                android:gravity="center"
+                android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/imageView9"
-                android:layout_width="70dp"
-                android:layout_height="90dp"
-                android:layout_margin="20dp"
-                android:layout_weight="1"
-                android:contentDescription="@string/img"
-                android:tag="5" />
-        </LinearLayout>
+                <androidx.appcompat.widget.AppCompatImageView
+                    style="@style/ImageStyle"
+                    android:tag="6" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+                <androidx.appcompat.widget.AppCompatImageView
+                    style="@style/ImageStyle"
+                    android:tag="7" />
 
-            <ImageView
-                android:id="@+id/imageView10"
-                android:layout_width="70dp"
-                android:layout_height="90dp"
-                android:layout_margin="20dp"
-                android:layout_weight="1"
-                android:contentDescription="@string/img"
-                android:tag="6" />
+                <androidx.appcompat.widget.AppCompatImageView
+                    style="@style/ImageStyle"
+                    android:tag="8" />
+            </TableRow>
 
-            <ImageView
-                android:id="@+id/imageView11"
-                android:layout_width="70dp"
-                android:layout_height="90dp"
-                android:layout_margin="20dp"
-                android:layout_weight="1"
-                android:contentDescription="@string/img"
-                android:tag="7" />
 
-            <ImageView
-                android:id="@+id/imageView12"
-                android:layout_width="70dp"
-                android:layout_height="90dp"
-                android:layout_margin="20dp"
-                android:layout_weight="1"
-                android:contentDescription="@string/img"
-                android:tag="8" />
-        </LinearLayout>
-
-    </LinearLayout>
+        </TableLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
     <include
         android:id="@+id/dialog"
-        android:visibility="visible"
         layout="@layout/play_again"
         android:layout_width="351dp"
         android:layout_height="230dp"
-        android:layout_marginBottom="100dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        android:visibility="gone"
+        android:layout_marginTop="100dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayoutCompat2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

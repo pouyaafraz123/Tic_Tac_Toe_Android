@@ -1,5 +1,7 @@
 package com.example.tictactoe;
 
-public enum GameMode {
+import java.io.Serializable;
+
+public enum GameMode implements Serializable {
     MULTIPLAYER,SINGLE_PLAYER_EASY,SINGLE_PLAYER_HARD
 }
